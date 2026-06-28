@@ -73,7 +73,7 @@ Code /Olist-Dashboard
 *Add 2–4 screenshots here (Home, Revenue, Seller, Orders, etc.)*
 
 **Example:**
-![Dashboard Screenshot](visuals/dashboard_home.png)
+![Dashboard Screenshot](visuals/Olist Revenue and Seller Performance.png)
 
 ---
 

@@ -70,7 +70,6 @@ Code /Olist-Dashboard
 ---
 
 # 📸 Dashboard Preview
-*Add 2–4 screenshots here (Home, Revenue, Seller, Orders, etc.)*
 
 ![Visual Screenshot](visuals/dashboard_home.png)
 

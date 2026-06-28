@@ -79,7 +79,7 @@ Code /Olist-Dashboard
 
 # 🔍 Key Insights
 * **Top Sellers** contribute a significant share of total marketplace revenue. The highest revenue generating sellers are not the top "Tier A (100K +)" sellers; rather, the top sales generators are those selling in the "Tier C (
-10K-50K)" and Tier D (1,000 - 10K) sales range.*
+10K-50K)" and Tier D (1,000 - 10K) sales range.
 * **Health and Beauty** category drives the highest overall revenue.
 * **Opportunity for Growth** Targeted seller fee discounts to sellers in Tier E or Tier D may provide incentives to increase sales and possibly move up in sales tiers, increasing overal revenue.
 * **Opportunity for Increased Customer Satisfaction** There may be an opportunity to increase customer satisfaction by removing underselling performers with low satisfaction rates and 100% late delivery rates from the marketplace.

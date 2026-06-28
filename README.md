@@ -44,4 +44,54 @@ To ensure a clean analytical layer and high‑performance DAX, the data model wa
 ### 🧱 Calculated Columns & Structural Enhancements
 Several calculated columns were engineered to support segmentation, improve usability, and enhance analytical depth:
 
-- **`seller_sales`** column added to `dim_s
+- - **`seller_sales`** column added to `dim_sellers` to support tier classification and seller‑level KPIs.
+- **Sequential `seller_number`** column created in `dim_sellers` to replace long alphanumeric seller IDs, improving visual readability and slicer usability.
+- Cleaned and standardized English translations in `dim_product_category_english` to ensure accurate category labels in visuals.
+- Ensured all dimension tables contain clean surrogate keys and well‑structured attributes for reliable slicing and grouping.
+
+---
+
+# 🛠️ Tech Stack
+* **Power BI Desktop:** Data modeling, DAX, and visualization.
+* **Power Query:** Data cleaning & transformation.
+* **GitHub:** Version control & portfolio presentation.
+* **Olist Public Dataset:** Sourced from Kaggle.
+
+---
+
+# 📂 Repository Structure
+```text
+Code /Olist-Dashboard
+ │── /visuals           # Screenshots & visuals
+ │── /pbip-project      # Power BI project files (recommended format)
+ │── README.md
+```
+
+---
+
+# 📸 Dashboard Preview
+*Add 2–4 screenshots here (Home, Revenue, Seller, Orders, etc.)*
+
+**Example:**
+![Dashboard Screenshot](visuals/dashboard_home.png)
+
+---
+
+# 🔍 Key Insights
+* **Top Sellers** contribute a significant share of total marketplace revenue. The highest revenue generating sellers are not the top "Tier A (100K +)" sellers; rather, the top sales generators are those selling in the "Tier C (
+10K-50K)" and Tier D (1,000 - 10K) sales range.*
+* **Health and Beauty** category drives the highest overall revenue.
+* **Opportunity for Growth** Targeted seller fee discounts to sellers in Tier E or Tier D may provide incentives to increase sales and possibly move up in sales tiers, increasing overal revenue.
+* **Opportunity for Increased Customer Satisfaction** There may be an opportunity to increase customer satisfaction by removing underselling performers with low satisfaction rates and 100% late delivery rates from the marketplace.
+
+---
+
+# 📥 How to Use
+1. **Clone** or download this repository.
+2. **Open** the `.pbip` file in Power BI Desktop.
+3. **Explore** the interactive dashboard elements.
+
+---
+
+# 🏁 Conclusion
+This project demonstrates strong analytical capabilities across the full data lifecycle — from cleaning and modeling to visualization and insight generation. It serves as a portfolio piece showcasing the ability to turn raw marketplace data into meaningful business intelligence.

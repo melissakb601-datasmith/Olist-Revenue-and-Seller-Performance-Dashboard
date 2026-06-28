@@ -63,7 +63,7 @@ Several calculated columns were engineered to support segmentation, improve usab
 ```text
 Code /Olist-Dashboard
  │── /visuals           # Screenshots & visuals
- │── /pbip-project      # Power BI project files (recommended format)
+ │── /pbip-project      # Power BI project files
  │── README.md
 ```
 

@@ -1,0 +1,107 @@
+table dim_sellers
+	lineageTag: baa1bdde-464e-49f2-bd17-b1cbb7db4cdf
+
+	column seller_id
+		dataType: string
+		lineageTag: 1eb155ee-3082-4502-bc0a-23e03a8dc056
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_zip_code_prefix
+		dataType: int64
+		formatString: 0
+		lineageTag: 92e00d82-a3b9-4d46-8497-51cb505c9f73
+		summarizeBy: none
+		sourceColumn: seller_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_city
+		dataType: string
+		lineageTag: 19806b09-cab3-4f69-9ed2-a93af0c75e9c
+		summarizeBy: none
+		sourceColumn: seller_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_state
+		dataType: string
+		lineageTag: 17ac5b6d-51f2-4d45-ade0-3fe74805105a
+		summarizeBy: none
+		sourceColumn: seller_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_number
+		dataType: string
+		lineageTag: 7db3ac8a-ac79-4b2a-8126-e7cfc570ecdf
+		summarizeBy: none
+		sourceColumn: seller_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_sales =
+			CALCULATE(
+			    SUM(fact_order_items[price]),
+			    FILTER(
+			        fact_order_items,
+			        fact_order_items[seller_id] = dim_sellers[seller_id]
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 7b2f56cd-2987-41c0-935a-dd9f32532dca
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seller Sales Tier' = ```
+			
+			VAR CurrentSales = dim_sellers[seller_sales]
+			RETURN
+			CALCULATE(
+			    SELECTEDVALUE(dim_tier_ranking[tier_name]), 
+			    FILTER(
+			        dim_tier_ranking,
+			        CurrentSales >= dim_tier_ranking[min_sales] &&
+			        CurrentSales <= dim_tier_ranking[max_sales]
+			    )
+			)
+			```
+		lineageTag: 06558664-471c-4528-ac5e-cf738458a688
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Avg Review Score' = ```
+			
+			AVERAGEX (
+			    VALUES ( dim_sellers[seller_id] ),
+			    CALCULATE ( AVERAGE ( dim_order_reviews[review_score] ) )
+			)
+			
+			```
+		formatString: 0.00
+		lineageTag: ae5f4528-3e23-42ab-9bed-c1923f77a171
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_sellers = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Melissa\Documents\Personal Portfolio Projects\Power BI\Olist\olist datacsv\olist_sellers_dataset.csv"),[Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"seller_id", type text}, {"seller_zip_code_prefix", Int64.Type}, {"seller_city", type text}, {"seller_state", type text}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1000, 1, Int64.Type),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Index",{{"Index", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"Index", "seller_number"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

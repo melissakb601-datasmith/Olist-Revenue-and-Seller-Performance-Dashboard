@@ -1,0 +1,34 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim_customers","dim_geolocation_dataset","fact_order_items","dim_order_payments_dataset","dim_order_reviews","dim_orders","dim_products","dim_sellers","dim_product_category_translation","dim_tier_ranking"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_customers
+ref table dim_geolocation_dataset
+ref table fact_order_items
+ref table DateTableTemplate_dc4f3d80-32d3-4c47-b181-8b45266c6df9
+ref table dim_order_payments_dataset
+ref table dim_order_reviews
+ref table LocalDateTable_572edb52-50a4-4a17-877a-7df52e5af4d3
+ref table LocalDateTable_9a06bbc3-9d9b-47a8-b24f-1069a2d0d375
+ref table dim_orders
+ref table dim_products
+ref table dim_sellers
+ref table dim_product_category_translation
+ref table _date
+ref table LocalDateTable_cf06276e-aa5e-4d01-90d7-df19d481c23c
+ref table dim_tier_ranking
+ref table _measures
+ref table LocalDateTable_956ffec5-516d-45d6-8fe1-7d75df642ec6
+
+ref cultureInfo en-US
+

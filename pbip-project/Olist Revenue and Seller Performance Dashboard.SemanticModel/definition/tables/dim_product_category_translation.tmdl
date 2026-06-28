@@ -1,0 +1,36 @@
+table dim_product_category_translation
+	lineageTag: db22eab6-4587-41a2-b37b-c27b1f129a10
+
+	column product_category_name
+		dataType: string
+		lineageTag: b1f242e7-63b4-4cce-8413-7ac9eca36452
+		summarizeBy: none
+		sourceColumn: product_category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_name_english
+		dataType: string
+		lineageTag: b5918282-48b8-473e-a4a3-1773bfe92f34
+		summarizeBy: none
+		sourceColumn: product_category_name_english
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product_category_translation = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Melissa\Documents\Personal Portfolio Projects\Power BI\Olist\olist datacsv\product_category_name_translation.csv"),[Delimiter=",", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Column1", "product_category_name"}, {"Column2", "product_category_name_english"}}),
+				    #"Removed Top Rows" = Table.Skip(#"Renamed Columns",1),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Top Rows","_"," ",Replacer.ReplaceText,{"product_category_name_english"}),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Replaced Value",{{"product_category_name_english", Text.Proper, type text}})
+				in
+				    #"Capitalized Each Word"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

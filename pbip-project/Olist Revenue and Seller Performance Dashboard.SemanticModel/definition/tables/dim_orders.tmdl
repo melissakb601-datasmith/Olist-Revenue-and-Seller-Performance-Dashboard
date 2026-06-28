@@ -1,0 +1,111 @@
+table dim_orders
+	lineageTag: eca29fba-57a5-4699-8de9-e6933f9efa85
+
+	column order_id
+		dataType: string
+		lineageTag: dfca884e-9a1d-46f8-a6aa-bc87e1b3a687
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 14fb07a8-e466-423f-ae8c-4588f187e2ca
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_status
+		dataType: string
+		lineageTag: 8f3df540-9a98-4fcb-a392-25667f1b8dac
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_purchase_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c908e208-d570-430d-85c8-9f3b73098c2f
+		summarizeBy: none
+		sourceColumn: order_purchase_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_approved_at
+		dataType: string
+		lineageTag: b0403eee-d793-4101-9b26-2d0026b0b450
+		summarizeBy: none
+		sourceColumn: order_approved_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_delivered_carrier_date
+		dataType: string
+		lineageTag: 68fedce6-f1f2-4d51-a0a9-88787a49cc7b
+		summarizeBy: none
+		sourceColumn: order_delivered_carrier_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_delivered_customer_date
+		dataType: string
+		lineageTag: fe6ba7d8-97b5-4429-9453-4e2094f3ad55
+		summarizeBy: none
+		sourceColumn: order_delivered_customer_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_estimated_delivery_date
+		dataType: string
+		lineageTag: e4b2e3af-b34e-4d1d-a480-44e6a4e2d408
+		summarizeBy: none
+		sourceColumn: order_estimated_delivery_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_status =
+			
+			IF(
+			    dim_orders[order_delivered_customer_date] >
+			    dim_orders[order_estimated_delivery_date],
+			    "Late",
+			    "On Time"
+			)
+		lineageTag: 168366c1-8676-4a32-bca0-6722ebb4f98e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date' =
+			
+			DATEVALUE( dim_orders[order_purchase_timestamp] )
+		formatString: General Date
+		lineageTag: 954a7333-7abf-40a5-89a6-ecafe78e394e
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 17efe188-856c-4dd9-ac72-573ebc606777
+			defaultHierarchy: LocalDateTable_956ffec5-516d-45d6-8fe1-7d75df642ec6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_orders = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Melissa\Documents\Personal Portfolio Projects\Power BI\Olist\olist datacsv\olist_orders_dataset.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"order_purchase_timestamp", type datetime}}),
+				    #"Removed Blank Rows" = Table.SelectRows(#"Changed Type", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null}))),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Blank Rows", each [order_purchase_timestamp] < #datetime(2018, 8, 31, 0, 0, 0))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

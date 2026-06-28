@@ -1,0 +1,42 @@
+table dim_tier_ranking
+	lineageTag: 9bc1910e-f9fd-40ef-8b74-5d7e678bd2a2
+
+	column tier_name
+		dataType: string
+		lineageTag: f068c9f1-ddff-48f9-836b-61b2dc93ffd7
+		summarizeBy: none
+		sourceColumn: tier_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column min_sales
+		dataType: int64
+		formatString: 0
+		lineageTag: 735862fc-42f1-4a71-95d4-a3a91b53e8c5
+		summarizeBy: sum
+		sourceColumn: min_sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column max_sales
+		dataType: int64
+		formatString: 0
+		lineageTag: 680dd880-85c6-4de4-b337-43d7af724fab
+		summarizeBy: sum
+		sourceColumn: max_sales
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_tier_ranking = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCslMLVJwVdBISs3JL1cw1DEwMNBU0lEyBGEgWylWB6rGRUEDLKtraOCtCZEFKbIEAoQiZ6AiA28FXQVTuCKgGTpKJqjKnBQ0gAqAJkFUmUJVWaKqcgQZBjRNG26SAZwBclksAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [tier_name = _t, min_sales = _t, max_sales = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"tier_name", type text}, {"min_sales", Int64.Type}, {"max_sales", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

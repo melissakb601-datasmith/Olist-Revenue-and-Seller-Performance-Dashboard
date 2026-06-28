@@ -1,0 +1,61 @@
+relationship e17a0503-eb99-4c1a-a1fe-7b3b1cc964b9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_order_reviews.review_creation_date
+	toColumn: LocalDateTable_572edb52-50a4-4a17-877a-7df52e5af4d3.Date
+
+relationship 488ab737-70ce-4c20-9c6a-7d4963673926
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_order_reviews.review_answer_timestamp
+	toColumn: LocalDateTable_9a06bbc3-9d9b-47a8-b24f-1069a2d0d375.Date
+
+relationship 73c02a4e-d832-8d04-bf50-6d90aecdd01d
+	crossFilteringBehavior: bothDirections
+	fromColumn: dim_orders.customer_id
+	toColumn: dim_customers.customer_id
+
+relationship d570b5d8-df8e-8f2c-ba42-523d58a4cb42
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_order_items.order_id
+	toColumn: dim_orders.order_id
+
+relationship 7c213a0b-14d3-a4ba-1f4e-6b202cf0c9de
+	fromColumn: fact_order_items.product_id
+	toColumn: dim_products.product_id
+
+relationship 3bd28960-34c0-f7fe-3e55-b143c087d390
+	crossFilteringBehavior: bothDirections
+	fromColumn: dim_products.product_category_name
+	toColumn: dim_product_category_translation.product_category_name
+
+relationship ac14a178-88f4-e915-2bee-7bb67855b8e0
+	fromColumn: fact_order_items.seller_id
+	toColumn: dim_sellers.seller_id
+
+relationship dc83d7f8-01ed-4bef-45bb-758ed75af016
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: dim_customers.customer_zip_code_prefix
+	toColumn: dim_geolocation_dataset.geolocation_zip_code_prefix
+
+relationship d5628ffe-7000-2fb3-1cc0-3bec4f73ced7
+	fromColumn: dim_order_payments_dataset.order_id
+	toColumn: dim_orders.order_id
+
+relationship 9f8b513f-6ea6-7d01-6c3a-0a16d726d45b
+	fromColumn: dim_order_reviews.order_id
+	toColumn: dim_orders.order_id
+
+relationship a7cb404e-b5f8-4259-863a-0186fcdd0e5c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_order_items.shipping_limit_date
+	toColumn: LocalDateTable_cf06276e-aa5e-4d01-90d7-df19d481c23c.Date
+
+relationship a19344aa-5a60-ed0e-498e-6d3a15e93197
+	fromColumn: dim_orders.order_purchase_timestamp
+	toColumn: _date.Date
+
+relationship 17efe188-856c-4dd9-ac72-573ebc606777
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_orders.'Order Date'
+	toColumn: LocalDateTable_956ffec5-516d-45d6-8fe1-7d75df642ec6.Date
+

@@ -1,11 +1,7 @@
 # Olist-Revenue-and-Seller-Performance-Dashboard
 
-This Power BI project analyzes Olist marketplace revenue, seller efficiency, and order dynamics. It highlights end‑to‑end data skills including data cleaning, modeling, DAX, visualization, and generating actionable business insights.
-
----
-
 # 📌 Overview
-This project showcases a Power BI analytics dashboard built using the Olist e‑commerce dataset. The goal is to analyze revenue performance, seller efficiency, and order dynamics across the Olist marketplace. It highlights end‑to‑end data skills including data cleaning, modeling, DAX, visualization, and business insight generation.
+This Power BI project analyzes Olist marketplace revenue, seller efficiency, and order dynamics. It highlights end‑to‑end data skills including data cleaning, modeling, DAX, visualization, and generating actionable business insights. This project showcases a Power BI analytics dashboard built using the Olist e‑commerce dataset. The goal is to analyze revenue performance, seller efficiency, and order dynamics across the Olist marketplace. It highlights end‑to‑end data skills including data cleaning, modeling, DAX, visualization, and business insight generation.
 
 ---
 

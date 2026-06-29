@@ -17,7 +17,7 @@ This project showcases a Power BI analytics dashboard built using the Olist e‑
 
 ---
 
-# 🧩 Key Dashboard Features
+## 📊 Key Dashboard Features
 - **KPIs:** Total Revenue, Total Orders, Items Sold, Average Order Value, Late Delivery Rate, Cancellation Rate  
 - **Seller Performance:** Seller ranking, fulfillment metrics, delivery times, and customer review analysis  
 - **Revenue‑Driving Products:** Top product categories and revenue contribution  

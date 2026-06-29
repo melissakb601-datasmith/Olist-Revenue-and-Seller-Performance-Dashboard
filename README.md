@@ -55,7 +55,7 @@ Several calculated columns were engineered to support segmentation, improve usab
 * **Power BI Desktop:** Data modeling, DAX, and visualization.
 * **Power Query:** Data cleaning & transformation.
 * **GitHub:** Version control & portfolio presentation.
-* **Olist Public Dataset:** Sourced from Kaggle.
+* **Olist Public Dataset:** This visualization uses kaggle data sourced from the [Brazilian E-Commerce Public Dataset by Olist] (https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
   
 ---
 

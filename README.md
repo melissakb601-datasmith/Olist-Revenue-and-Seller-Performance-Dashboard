@@ -41,7 +41,7 @@ To ensure a clean analytical layer and high‑performance DAX, the data model wa
 
 ---
 
-### 🧱 Calculated Columns & Structural Enhancements
+### 🧮 Calculated Columns & Structural Enhancements
 Several calculated columns were engineered to support segmentation, improve usability, and enhance analytical depth:
 
 - - **`seller_sales`** column added to `dim_sellers` to support tier classification and seller‑level KPIs.

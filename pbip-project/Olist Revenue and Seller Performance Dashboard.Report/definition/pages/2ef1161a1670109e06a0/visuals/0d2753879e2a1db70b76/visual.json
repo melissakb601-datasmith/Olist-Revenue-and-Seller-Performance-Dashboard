@@ -497,49 +497,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "f6dda0f3095d928553f7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_measures"
-              }
-            },
-            "Property": "Active Sellers"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "69fb71f5ff76594bfb82",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_measures"
-              }
-            },
-            "Property": "Total Orders"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8bc3ca866300e68708e2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_measures"
-              }
-            },
-            "Property": "Total Items Sold"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2fc13f46d8e5e2da8719",
+        "name": "540caed96f76169ad027",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -558,7 +516,49 @@
         "type": "Advanced"
       },
       {
-        "name": "a0c38a016dfff93135e0",
+        "name": "bab18d4a13e5b709760b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_measures"
+              }
+            },
+            "Property": "Total Orders"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "43d5b30bfa434b8d88ca",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_measures"
+              }
+            },
+            "Property": "Total Items Sold"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "efbda68e1303cb4d71d9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_measures"
+              }
+            },
+            "Property": "Active Sellers"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "928132b61ab7e62c20af",
         "field": {
           "Measure": {
             "Expression": {
@@ -572,7 +572,7 @@
         "type": "Advanced"
       },
       {
-        "name": "ade95490e20718137a92",
+        "name": "9c15aa0d089a5e1578cd",
         "field": {
           "Measure": {
             "Expression": {
@@ -586,7 +586,7 @@
         "type": "Advanced"
       },
       {
-        "name": "f41fc10036aa83e39003",
+        "name": "95087c24427f946a6566",
         "field": {
           "Measure": {
             "Expression": {

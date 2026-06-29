@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "8cee169c8409d131163a",
+  "position": {
+    "x": 0,
+    "y": 690.37645448323065,
+    "z": 6001,
+    "height": 29.787816563997264,
+    "width": 234.798083504449,
+    "tabOrder": 6001
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "github.com/melissakb601-datasmith",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#999999"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

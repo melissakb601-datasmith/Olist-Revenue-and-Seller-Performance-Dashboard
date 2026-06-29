@@ -3,7 +3,7 @@
   "name": "30539c1cd1f4f8a8c83c",
   "position": {
     "x": 0,
-    "y": 330.2943189596167,
+    "y": 316.27652292950035,
     "z": 2000,
     "height": 388.993839835729,
     "width": 785.87268993839837,
@@ -268,6 +268,48 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "109e334f3e8e1253b9a7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_product_category_translation"
+              }
+            },
+            "Property": "product_category_name_english"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "86b1cd1984afe63b1c07",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_measures"
+              }
+            },
+            "Property": "Avg Seller Review"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "02fc546b738a87f0486a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_measures"
+              }
+            },
+            "Property": "Total Sales by Category"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }
